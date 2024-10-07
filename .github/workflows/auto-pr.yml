@@ -11,15 +11,14 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3   # Updated to the latest version
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}  # Ensure GITHUB_TOKEN has correct permissions
           commit-message: "Auto PR for new feature"
           title: "Pull request for feature branch"
           body: "This is an automatically generated pull request"
           branch: main       # Target branch for the pull request
-          labels: auto-pull-request
-
+          labels: auto-pull-request  # Optional label for the PR
